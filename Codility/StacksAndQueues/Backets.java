@@ -1,40 +1,27 @@
-
-
 import java.util.*;
 
-class Backets {
+class Solution {
     public int solution(String S) {
         Deque<Character> stack = new LinkedList<>();
+
+		Map<Character, Character> mapBrackets = new HashMap<>(); 
+		mapBrackets.put(')', '(');
+        mapBrackets.put(']', '[');
+        mapBrackets.put('}', '{');
+
+		Set<Character> openBrackets = new HashSet<>(mapBrackets.values());	
         
-        for(char c : S.toCharArray()) {
-            if(c == '[' || c == '(' || c == '{')
+        for(Character c : S.toCharArray()) {
+            if(openBrackets.contains(c))
                 stack.push(c);
             else {
                 Character stackHead = stack.poll(); 
-                if(stackHead == null)
+                if(! mapBrackets.get(c).equals(stackHead))
                     return 0; 
-                    
-                char head = stackHead.charValue();
-                switch(c) {
-                    case ')' :  if(head != '(')
-                                    return 0;
-                                break;
-                    case ']' :  if(head != '[')
-                                    return 0;
-                                break;
-                    case '}' :  if(head != '{')
-                                    return 0;
-                                break;
-                    default  :  return 0;
-
-                };
             }
         }
         
-        if(stack.isEmpty()) 
-            return 1;
-        else 
-            return 0;
+        return (stack.isEmpty()) ? 1 : 0; 
      }
 }
 
