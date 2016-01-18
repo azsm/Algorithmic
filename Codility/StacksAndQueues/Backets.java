@@ -21,7 +21,7 @@ class Solution {
             }
         }
         
-        return (stack.isEmpty()) ? 1 : 0; 
+        return stack.isEmpty() ? 1 : 0; 
      }
 }
 
