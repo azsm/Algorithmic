@@ -4,12 +4,12 @@ class Solution {
     public int solution(String S) {
         Deque<Character> stack = new LinkedList<>();
 
-		Map<Character, Character> mapBrackets = new HashMap<>(); 
-		mapBrackets.put(')', '(');
+	Map<Character, Character> mapBrackets = new HashMap<>(); 
+	mapBrackets.put(')', '(');
         mapBrackets.put(']', '[');
         mapBrackets.put('}', '{');
 
-		Set<Character> openBrackets = new HashSet<>(mapBrackets.values());	
+	Set<Character> openBrackets = new HashSet<>(mapBrackets.values());	
         
         for(Character c : S.toCharArray()) {
             if(openBrackets.contains(c))
