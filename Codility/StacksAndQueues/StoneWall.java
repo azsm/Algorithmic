@@ -1,7 +1,6 @@
 import java.util.*;
 
-
-class Solution {
+class StoneWall {
     public int solution(int[] H) {
         Deque<Integer> stack = new LinkedList<>();
         
